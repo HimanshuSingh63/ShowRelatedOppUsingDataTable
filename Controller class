@@ -1,0 +1,10 @@
+public class opportunityDataTableController {
+    public List<Opportunity> opportunity {get; set;}
+    
+    //collecting the records from account and opportunity
+    
+    public opportunityDataTableController() {
+        opportunity =[SELECT Name,StageName,CloseDate,Opportunity.Account.Name FROM Opportunity];
+    }
+
+}
