@@ -1,0 +1,28 @@
+@isTest
+private class opportunityDataTableControllerTest {
+    
+    @isTest static void testOpportunityDataTableController() {
+        
+        // Create test data
+        Account acc1 = new Account(Name='Test Account 1', Type='Customer', Industry='Technology', Phone='1234567890');
+        insert acc1;
+        Opportunity opp1 = new Opportunity(Name='Test Opportunity 1', AccountId=acc1.Id, CloseDate=Date.today(), StageName='Prospecting');
+        insert opp1;
+        
+        Account acc2 = new Account(Name='Test Account 2', Type='Customer', Industry='Technology', Phone='1234567890');
+        insert acc2;
+        Opportunity opp2 = new Opportunity(Name='Test Opportunity 2', AccountId=acc2.Id, CloseDate=Date.today(), StageName='Prospecting');
+        insert opp2;
+        
+  
+        
+        // Instantiate opportunityDataTableController class
+        opportunityDataTableController oppDataTable = new opportunityDataTableController();
+        
+        // Check that the opportunity list is not empty and contains the correct number of records
+        System.assertNotEquals(oppDataTable.opportunity, null);
+        System.assertEquals(oppDataTable.opportunity.size(), 2);
+        
+
+    }
+}
